@@ -1,0 +1,11 @@
+# vim: filetype=yaml syntax=yaml
+
+extends: stylelint-config-recommended
+rules:
+  color-no-invalid-hex: true
+  keyframe-declaration-no-important: true
+  max-empty-lines: 2
+  property-no-unknown: true
+  shorthand-property-no-redundant-values: true
+  unit-no-unknown: true
+

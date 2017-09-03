@@ -1,0 +1,60 @@
+const path               = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HTMLWebpackPlugin  = require('html-webpack-plugin');
+const ExtractTextPlugin  = require('extract-text-webpack-plugin');
+
+const extract_sass = new ExtractTextPlugin({
+  filename: 'css/[name].css'
+});
+
+module.exports = {
+  entry: [
+    'babel-polyfill'
+    ,path.resolve(__dirname, 'src', 'index.js')
+    ,path.resolve(__dirname, 'src', 'styles', 'main.scss')
+  ]
+  ,output: {
+    path: path.resolve(__dirname, 'dist')
+    ,filename: 'js/[name].bundle.js'
+  }
+  ,module: {
+    rules: [
+      {
+        // Transpile ES6 to ES5
+        loader: 'babel-loader'
+        ,include: [path.resolve(__dirname, 'src')]
+        ,test: /\.js$/
+        ,query: {
+          presets: ['es2015','stage-0']
+          ,plugins: ['transform-runtime']
+        }
+      }
+      ,{
+        // Preprocess Sass
+        use: extract_sass.extract({
+          use: [
+            {
+              loader: 'css-loader'
+              ,options: {
+                sourceMap: true
+              }
+            }
+            ,{
+              loader: 'sass-loader'
+              ,options: {
+                sourceMap: true
+              }
+            }
+          ]
+        })
+        ,include: [path.resolve(__dirname, 'src')]
+        ,test: /\.scss$/
+      }
+    ]
+  }
+  ,plugins: [
+    new CleanWebpackPlugin(['dist'])
+    ,new HTMLWebpackPlugin({title: 'New Project'})
+    ,extract_sass
+  ]
+};

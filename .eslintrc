@@ -1,0 +1,163 @@
+# vim: filetype=yaml syntax=yaml
+
+root: true
+env:
+  browser: true
+  commonjs: true
+  es6: true
+  node: true
+
+parserOptions:
+  ecmaFeatures:
+    modules: true
+  ecmaVersion: 6
+  sourceType: module
+
+extends:
+  - eslint:recommended
+
+rules:
+  array-bracket-newline:
+    - error
+    - multiline: true
+  array-bracket-spacing: error
+  array-element-newline:
+    - error
+    - multiline: true
+  arrow-spacing: error
+  block-spacing:
+    - error
+    - never
+  brace-style:
+    - error
+    - allman
+  camelcase: off
+  capitalized-comments: error
+  comma-dangle: error
+  comma-spacing: off
+  comma-style:
+    - error
+    - first
+  curly: error
+  dot-location:
+    - error
+    - property
+  eol-last: error
+  eqeqeq: error
+  func-call-spacing: error
+  func-style:
+    - error
+    - declaration
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  key-spacing:
+    - error
+    - singleLine: {}
+      multiLine:
+        beforeColon: true
+        align: colon
+  keyword-spacing:
+    - error
+    - overrides:
+        if:
+          after: false
+        else:
+          before: false
+          after: false
+        for:
+          after: false
+        while:
+          after: false
+  linebreak-style: error
+  max-depth:
+    - error
+    - max: 4
+  max-len:
+    - error
+    - code: 79
+  max-lines:
+    - error
+    - max: 300
+  max-nested-callbacks:
+    - error
+    - 3
+  max-params: error
+  max-statements-per-line: error
+  newline-per-chained-call: error
+  no-alert: warn
+  no-console: warn
+  no-debugger: warn
+  no-irregular-whitespace: error
+  no-mixed-operators: error
+  no-multi-assign: error
+  no-multi-spaces:
+    - error
+    - ignoreEOLComments: true
+      exceptions:
+        VariableDeclarator: true
+        ImportDeclaration: true
+  no-multi-str: error
+  no-multiple-empty-lines:
+    - error
+    - max: 2
+      maxBOF: 0
+      maxEOF: 1
+  no-tabs: error
+  no-trailing-spaces: error
+  no-whitespace-before-property: error
+  no-var: error
+  object-curly-newline:
+    - error
+    - consistent: true
+      multiline: true
+  object-curly-spacing: error
+  object-property-newline: error
+  padding-line-between-statements:
+    - error
+    - blankLine: always
+      prev: "*"
+      next: return
+    - blankLine: always
+      prev:
+        - const
+        - let
+      next: "*"
+    - blankLine: any
+      prev:
+        - const
+        - let
+      next:
+        - const
+        - let
+    - blankLine: always
+      prev: "*"
+      next: function
+    - blankLine: always
+      prev: function
+      next: "*"
+    - blankLine: always
+      prev: directive
+      next: '*'
+    - blankLine: any
+      prev: directive
+      next: directive
+  prefer-const: error
+  prefer-numeric-literals: error
+  quotes:
+    - error
+    - single
+    - avoidEscape: true
+      allowTemplateLiterals: false
+  sort-keys: error
+  space-before-function-paren:
+    - error
+    - never
+  space-in-parens: error
+  space-infix-ops: error
+  space-unary-ops:
+    - error
+    - words: true
+      nonwords: false
+
