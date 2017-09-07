@@ -1,6 +1,5 @@
-# vim: filetype=yaml syntax=yaml
-
 root: true
+
 env:
   browser: true
   commonjs: true
