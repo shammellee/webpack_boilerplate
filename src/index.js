@@ -1,10 +1,20 @@
-window.onload = () =>
+import React from 'react';
+import {render} from 'react-dom';
+
+import MyComponent from './app/MyComponent';
+
+class App extends React.Component
 {
-  const h1 = document.createElement('h1');
+  render()
+  {
+    return (
+      <div>
+        <h1 className='header'>React is ready!</h1>
+        <MyComponent/>
+      </div>
+    );
+  }
+}
 
-  h1.classList.add('header');
-  h1.textContent = 'weback ready!';
-
-  document.body.append(h1);
-};
+render(<App/>, document.getElementById('app'));
 

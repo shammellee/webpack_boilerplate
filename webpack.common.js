@@ -7,6 +7,8 @@ const extract_sass = new ExtractTextPlugin({
   filename: 'css/[name].css'
 });
 
+const SRC_DIR = path.resolve(__dirname, 'src');
+
 module.exports = {
   entry: [
     'babel-polyfill'
@@ -22,10 +24,10 @@ module.exports = {
       {
         // Transpile ES6 to ES5
         loader: 'babel-loader'
-        ,include: [path.resolve(__dirname, 'src')]
-        ,test: /\.js$/
+        ,include: [SRC_DIR]
+        ,test: /\.jsx?$/
         ,query: {
-          presets: ['es2015','stage-0']
+          presets: ['es2015', 'stage-0', 'react']
           ,plugins: ['transform-runtime']
         }
       }
@@ -54,7 +56,11 @@ module.exports = {
   }
   ,plugins: [
     new CleanWebpackPlugin(['dist'])
-    ,new HTMLWebpackPlugin({title: 'New Project'})
+    ,new HTMLWebpackPlugin({
+      title: 'New React Project'
+      ,template: path.resolve(SRC_DIR, 'index.html')
+      ,inject: 'body'
+    })
     ,extract_sass
   ]
 };

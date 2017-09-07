@@ -8,10 +8,10 @@ module.exports = merge(common_config, {
     rules: [
       {
         // Run eslint before processing ES6
-        enforce: 'pre'
+        include: [path.resolve(__dirname, 'src')]
+        ,test: /\.jsx?$/
         ,loader: 'eslint-loader'
-        ,include: [path.resolve(__dirname, 'src')]
-        ,test: /\.js$/
+        ,enforce: 'pre'
         ,options: {
           emitWarning: true
           ,cache: true
