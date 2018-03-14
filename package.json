@@ -31,7 +31,7 @@
     "mocha-webpack": "next",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
-    "stylelint": "^8.0.0",
+    "stylelint": "^8.1.1",
     "stylelint-config-recommended": "^1.0.0",
     "stylelint-webpack-plugin": "^0.9.0",
     "uglifyjs-webpack-plugin": "^0.4.6",
