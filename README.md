@@ -23,3 +23,5 @@ $ make dev
 $ make prod
 ```
 
+# TODOs
+* Add html-webpack-template
