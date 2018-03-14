@@ -1,5 +1,6 @@
-import add from '../add';
 import {expect} from 'chai';
+
+import add from '../add';
 
 describe('mytest', () =>
 {

@@ -1,7 +1,9 @@
 const path            = require('path');
+
 const merge           = require('webpack-merge');
-const common_config   = require('./webpack.common');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+const common_config   = require('./webpack.common');
 
 module.exports = merge(common_config, {
   module: {
