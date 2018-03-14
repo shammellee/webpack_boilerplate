@@ -3,6 +3,7 @@ const path               = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin  = require('html-webpack-plugin');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
+const DashboardPlugin    = require('webpack-dashboard/plugin');
 
 const extract_sass = new ExtractTextPlugin({
   filename: 'css/[name].css'
@@ -63,5 +64,7 @@ module.exports = {
       ,inject: 'body'
     })
     ,extract_sass
+    ,new DashboardPlugin()
   ]
 };
+
