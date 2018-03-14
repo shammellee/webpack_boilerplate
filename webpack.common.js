@@ -12,14 +12,16 @@ const extract_sass = new ExtractTextPlugin({
 const SRC_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
-  entry: [
-    'babel-polyfill'
-    ,path.resolve(__dirname, 'src', 'index.js')
-    ,path.resolve(__dirname, 'src', 'styles', 'main.scss')
-  ]
+  entry: {
+    main: [
+      'babel-polyfill'
+      ,path.resolve(SRC_DIR, 'index.js')
+      ,path.resolve(SRC_DIR, 'styles', 'main.scss')
+    ]
+  }
   ,output: {
     path: path.resolve(__dirname, 'dist')
-    ,filename: 'js/[name].bundle.js'
+    ,filename: path.join('js', '[name].bundle.js')
   }
   ,module: {
     rules: [
@@ -39,20 +41,14 @@ module.exports = {
           use: [
             {
               loader: 'css-loader'
-              ,options: {
-                sourceMap: true
-              }
             }
             ,{
               loader: 'sass-loader'
-              ,options: {
-                sourceMap: true
-              }
             }
           ]
         })
-        ,include: [path.resolve(__dirname, 'src')]
-        ,test: /\.scss$/
+        ,include: [SRC_DIR]
+        ,test: /\.s?css$/
       }
     ]
   }
